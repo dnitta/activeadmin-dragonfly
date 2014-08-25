@@ -1,0 +1,8 @@
+ja:
+  formtastic:
+    dragonfly:
+      no_image: "登録無し"
+      preview: "プレビュー"
+      upload: "アップロード"
+      url: "URL"
+      remove: "画像を削除"
