@@ -52,7 +52,7 @@ module Formtastic
         if labels_from_options.key?(fragment)
           labels_from_options[fragment]
         else
-          ::I18n.t(fragment.to_s, :default => fragment.to_s.humanize, :scope => [:dragonfly])
+          I18n.t(fragment.to_s, :default => fragment.to_s.humanize, :scope => [:dragonfly])
         end
       end
 
@@ -79,12 +79,12 @@ module Formtastic
             original_url = object.send(method).url
             preview_size = input_html_options[:preview_size] || [ 75, 75 ]
             preview_url = object.send(method).thumb("#{preview_size.first}x#{preview_size.last}#").url
-            fragment_label_html(:preview) << template.link_to(template.image_tag(preview_url), original_url)
+            fragment_label_html(:preview) << template.link_to(template.image_tag(preview_url), original_url, target: :_blank)
           else
             fragment_download_html
           end
         else
-          fragment_label_html(:preview) << "<div class='no-image'>#{I18n.t("dragonfly.no_image")}</div>".html_safe
+          fragment_label_html(:preview) << template.link_to(template.image_tag("/assets/preview_no_image.png"), "javascript: void(0);")
         end
       end
 
