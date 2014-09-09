@@ -84,7 +84,7 @@ module Formtastic
             fragment_download_html
           end
         else
-          fragment_label_html(:preview) << template.link_to(template.image_tag("/assets/preview_no_image.png"), "javascript: void(0);")
+          fragment_label_html(:preview) << template.link_to(template.image_tag("preview_no_image.png"), "javascript: void(0);")
         end
       end
 
